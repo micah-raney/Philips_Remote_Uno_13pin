@@ -33,4 +33,4 @@ After that, the rest of the keypad pins are in order from 4 to 13.
 The LED needs to have a resistor and a ground, as you probably know.
 And you're done.
 
-I'll add some pictures to make this more clear.
+![close-up of pinout](https://github.com/micah-raney/Philips_Remote_Uno_13pin/blob/master/close_up.jpg)
