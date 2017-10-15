@@ -1,7 +1,17 @@
-#include <IRremote.h>
-#include <IRremoteInt.h>
+#include <ir_Mitsubishi.h>
+#include <IRutils.h>
+#include <ir_Argo.h>
+#include <IRtimer.h>
+#include <ir_Fujitsu.h>
+#include <IRsend.h>
+#include <ir_Kelvinator.h>
+#include <IRremoteESP8266.h>
+#include <ir_Daikin.h>
+#include <ir_LG.h>
+#include <ir_Trotec.h>
+#include <IRrecv.h>
 
-IRsend mysend;
+IRsend mysend(16);
 
 // Keypad code provided by:
 // DavidE 2/4/15
@@ -11,12 +21,15 @@ IRsend mysend;
 void setup(){
   Serial.begin(9600);
   Serial.print("Receiving Input.");
+
+  pinMode(16, OUTPUT);
+}
   /*
   Set pins 2-13 as inputs and enable the internal pull-up resistor 
   with the INPUT_PULLUP constant.  Wire each of these pins directly 
   to a unique pin on the keypad thus addressing each key.  
   The common terminal is connected to ground. 
-  */
+  
   pinMode(1, INPUT_PULLUP);
   pinMode(2, INPUT_PULLUP);
   pinMode(4, INPUT_PULLUP);
@@ -65,16 +78,18 @@ void checkInput(){
   if(!six){ Serial.println(6); mysend.sendRC5(6, 12); delay(debounce); }
   if(!three){ Serial.println(3); mysend.sendRC5(3, 12); delay(debounce); }
 }
-
+*/
 void blink() {
-  digitalWrite(3, HIGH);
+  digitalWrite(16, HIGH);
   delay(40);
-  digitalWrite(3, LOW);
+  digitalWrite(16, LOW);
   delay(40);
 }  
   
 void loop(){
-  checkInput();
+  //checkInput();
+  mysend.sendRC5(0x80C, 12);
+  delay(400);
 }
 
 
