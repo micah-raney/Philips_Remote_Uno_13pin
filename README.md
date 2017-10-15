@@ -6,7 +6,7 @@ The code has been adapted from a few different sources.
 
 Keypad Code: [Instructables](http://www.instructables.com/id/12-Key-Common-Terminal-Keypad/)
 
-IR library: [z3t0 on GitHub](https://github.com/z3t0/Arduino-IRremote)
+IR library (Specific to ESP82660: [markszabo on GitHub](https://github.com/markszabo/IRremoteESP8266)
 
 The code looks messy because it is. I wanted a prototype up and running as quickly as possible.
 
